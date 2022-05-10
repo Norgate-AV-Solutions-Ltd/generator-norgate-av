@@ -23,9 +23,19 @@
     },
     "scripts": {
         "pretest": "eslint .",
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "pretty:fix": "prettier --write .",
+        "commit": "git-cz",
+        "prepare": "husky install"
     },
     "devDependencies": {
+        "@commitlint/cli": "^16.2.3",
+        "@commitlint/config-conventional": "^16.2.1",
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "cz-conventional-changelog": "3.3.0",
         "eslint": "^8.15.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-xo": "^0.40.0",
@@ -34,6 +44,7 @@
         "jest": "^28.1.0",
         "lint-staged": "^12.4.1",
         "prettier": "^2.6.2",
+        "semantic-release": "^19.0.2",
         "yeoman-assert": "^3.1.1",
         "yeoman-test": "^6.3.0"
     },
@@ -46,34 +57,17 @@
         "testEnvironment": "node"
     },
     "lint-staged": {
-        "*.js": [
-            "eslint --fix",
-            "git add"
+        "*?(test|spec).{js,jsx,ts,tsx}": [
+            "yarn lint:fix",
+            "yarn pretty:fix"
         ],
-        "*.json": [
-            "prettier --write",
-            "git add"
+        "*.{css,scss,md,html,json,yml,yaml}": [
+            "yarn pretty:fix"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
         }
-    },
-    "eslintConfig": {
-        "extends": [
-            "xo",
-            "prettier"
-        ],
-        "env": {
-            "jest": true,
-            "node": true
-        },
-        "rules": {
-            "prettier/prettier": "error"
-        },
-        "plugins": [
-            "prettier"
-        ]
     }
 }
