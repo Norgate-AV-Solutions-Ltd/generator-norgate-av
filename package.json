@@ -3,8 +3,11 @@
     "version": "0.0.0-development",
     "description": "A collection of various project boilerplates",
     "keywords": [
-        "",
-        "yeoman-generator"
+        "yeoman-generator",
+        "project",
+        "javascript",
+        "typescript",
+        "boilerplate"
     ],
     "license": "MIT",
     "main": "generators/index.js",
