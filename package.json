@@ -22,7 +22,7 @@
         "node": ">=14"
     },
     "scripts": {
-        "pretest": "eslint .",
+        "pretest": "yarn lint",
         "test": "jest",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
