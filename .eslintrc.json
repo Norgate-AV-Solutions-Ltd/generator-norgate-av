@@ -17,6 +17,9 @@
             {
                 "avoidEscape": true
             }
-        ]
+        ],
+        "no-console": "off",
+        "no-restricted-syntax": "off",
+        "no-param-reassign": "off"
     }
 }
