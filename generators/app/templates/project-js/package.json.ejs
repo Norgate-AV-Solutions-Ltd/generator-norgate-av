@@ -1,0 +1,35 @@
+{
+    "name": <%- JSON.stringify(name) %>,
+    "displayName": <%- JSON.stringify(displayName) %>,
+    "description": <%- JSON.stringify(description) %>,
+    "version": "0.0.0-development",
+    "license": "MIT",
+    "main": "./src/index.js",
+    "engines": {
+        "node": ">=14"
+    },
+    "scripts": {
+        "start": "nodemon src/index.js",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "pretty:fix": "prettier --write .",
+        "commit": "git-cz",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^16.2.3",
+        "@commitlint/config-conventional": "^16.2.1",
+        "cz-conventional-changelog": "3.3.0",
+        "eslint": "^8.15.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^12.4.1",
+        "prettier": "^2.6.2"
+    },
+    "dependencies": {
+        "nodemon": "^2.0.16"
+    }
+}
