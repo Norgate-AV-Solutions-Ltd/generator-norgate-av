@@ -1,11 +1,22 @@
 {
-    "extends": ["xo", "prettier"],
     "env": {
-        "jest": true,
-        "node": true
+        "commonjs": true,
+        "es2021": true,
+        "node": true,
+        "jest": true
     },
+    "extends": ["airbnb-base", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": ["prettier"],
     "rules": {
-        "prettier/prettier": "error"
-    },
-    "plugins": ["prettier"]
+        "quotes": [
+            "error",
+            "double",
+            {
+                "avoidEscape": true
+            }
+        ]
+    }
 }
