@@ -7,3 +7,4 @@ node_modules/*
 .history/*
 coverage/*
 **/templates
+generators/app/templates/*
