@@ -1,4 +1,3 @@
-"use strict";
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
@@ -9,9 +8,9 @@ module.exports = class extends Generator {
         this.log(
             yosay(
                 `Welcome to the praiseworthy ${chalk.red(
-                    "generator-norgate-av"
-                )} generator!`
-            )
+                    "generator-norgate-av",
+                )} generator!`,
+            ),
         );
 
         const prompts = [
@@ -19,11 +18,11 @@ module.exports = class extends Generator {
                 type: "confirm",
                 name: "someAnswer",
                 message: "Would you like to enable this option?",
-                default: true
-            }
+                default: true,
+            },
         ];
 
-        return this.prompt(prompts).then(props => {
+        return this.prompt(prompts).then((props) => {
             // To access props later use this.props.someAnswer;
             this.props = props;
         });
@@ -32,7 +31,7 @@ module.exports = class extends Generator {
     writing() {
         this.fs.copy(
             this.templatePath("dummyfile.txt"),
-            this.destinationPath("dummyfile.txt")
+            this.destinationPath("dummyfile.txt"),
         );
     }
 
