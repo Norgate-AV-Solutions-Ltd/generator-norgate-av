@@ -90,7 +90,9 @@ module.exports = class extends Generator {
     async initializing() {
         this.log(
             yosay(
-                `Welcome to the ${chalk.red("Norgate AV")} project generator!`,
+                `Welcome to the\n${chalk.magenta(
+                    "Norgate AV",
+                )}\nproject generator!`,
             ),
         );
 
@@ -171,8 +173,9 @@ module.exports = class extends Generator {
 
         this.env.cwd = this.destinationPath();
 
+        this.log(`Bootstrapping ${this.projectConfig.name}...`);
         this.log();
-        this.log(`Writing in ${this.destinationPath()}...`);
+        this.log(`Copying files to ${this.destinationPath()}...`);
 
         this.sourceRoot(
             path.join(__dirname, `./templates/${this.projectConfig.type}`),
