@@ -119,12 +119,11 @@ module.exports = {
             generator.destinationPath("LICENSE"),
         );
 
-        if (projectConfig.checkJavaScript) {
-            generator.fs.copy(
-                generator.templatePath("jsconfig.json"),
-                generator.destinationPath("jsconfig.json"),
-            );
-        }
+        generator.fs.copyTpl(
+            generator.templatePath("jsconfig.json.ejs"),
+            generator.destinationPath("jsconfig.json"),
+            projectConfig,
+        );
 
         generator.fs.copyTpl(
             generator.templatePath("package.json.ejs"),
