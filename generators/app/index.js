@@ -5,9 +5,10 @@ const yosay = require("yosay");
 const path = require("path");
 const which = require("which");
 
+const typescript = require("./generate-typescript");
 const javascript = require("./generate-javascript");
 
-const projectGenerators = [javascript];
+const projectGenerators = [typescript, javascript];
 
 module.exports = class extends Generator {
     constructor(args, opts) {

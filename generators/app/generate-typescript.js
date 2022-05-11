@@ -1,0 +1,132 @@
+const prompts = require("./prompts");
+
+module.exports = {
+    id: "project-ts",
+    aliases: ["typescript", "ts", "node-ts"],
+    name: "Node.js (TypeScript)",
+
+    /**
+     * @param {import('yeoman-generator')} generator
+     * @param {Object} projectConfig
+     */
+    prompting: async (generator, projectConfig) => {
+        await prompts.askForProjectDisplayName(generator, projectConfig);
+        await prompts.askForProjectId(generator, projectConfig);
+        await prompts.askForProjectDescription(generator, projectConfig);
+        await prompts.askForGit(generator, projectConfig);
+        await prompts.askForPackageManager(generator, projectConfig);
+    },
+
+    /**
+     * @param {import('yeoman-generator')} generator
+     * @param {Object} projectConfig
+     */
+    writing: (generator, projectConfig) => {
+        generator.fs.copy(
+            generator.templatePath("github"),
+            generator.destinationPath(".github"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("husky"),
+            generator.destinationPath(".husky"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("vscode"),
+            generator.destinationPath(".vscode"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("src"),
+            generator.destinationPath("src"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath(".commitlintrc.json"),
+            generator.destinationPath(".commitlintrc.json"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath(".eslintrc.json"),
+            generator.destinationPath(".eslintrc.json"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("eslintignore"),
+            generator.destinationPath(".eslintignore"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath(".lintstagedrc.json"),
+            generator.destinationPath(".lintstagedrc.json"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath(".prettierrc.json"),
+            generator.destinationPath(".prettierrc.json"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("prettierignore"),
+            generator.destinationPath(".prettierignore"),
+        );
+
+        generator.fs.copyTpl(
+            generator.templatePath("CHANGELOG.md"),
+            generator.destinationPath("CHANGELOG.md"),
+            projectConfig,
+        );
+
+        generator.fs.copy(
+            generator.templatePath("czrc"),
+            generator.destinationPath(".czrc"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("editorconfig"),
+            generator.destinationPath(".editorconfig"),
+        );
+
+        if (projectConfig.git) {
+            generator.fs.copy(
+                generator.templatePath("gitignore"),
+                generator.destinationPath(".gitignore"),
+            );
+
+            generator.fs.copy(
+                generator.templatePath("gitattributes"),
+                generator.destinationPath(".gitattributes"),
+            );
+        }
+
+        generator.fs.copy(
+            generator.templatePath("LICENSE"),
+            generator.destinationPath("LICENSE"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("tsconfig.eslint.json"),
+            generator.destinationPath("tsconfig.eslint.json"),
+        );
+
+        generator.fs.copy(
+            generator.templatePath("tsconfig.json"),
+            generator.destinationPath("tsconfig.json"),
+        );
+
+        generator.fs.copyTpl(
+            generator.templatePath("package.json.ejs"),
+            generator.destinationPath("package.json"),
+            projectConfig,
+        );
+
+        generator.fs.copyTpl(
+            generator.templatePath("README.md"),
+            generator.destinationPath("README.md"),
+            projectConfig,
+        );
+
+        projectConfig.installDependencies = true;
+    },
+};
