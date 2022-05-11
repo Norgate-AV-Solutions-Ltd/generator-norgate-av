@@ -1,3 +1,3 @@
-# generator-norgate-av
+# Yo Norgate-AV
 
-A collection of various project boilerplate generators
+A Yeoman generator to bootstrap various projects 🚀🚀🚀
