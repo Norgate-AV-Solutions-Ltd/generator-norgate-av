@@ -4,6 +4,7 @@ const yosay = require("yosay");
 
 const path = require("path");
 const which = require("which");
+const env = require("./env");
 
 const typescript = require("./generate-typescript");
 const javascript = require("./generate-javascript");
@@ -106,6 +107,19 @@ module.exports = class extends Generator {
 
             this.destinationRoot(folderPath);
         }
+
+        const dependencies = await env.getDependencies();
+        this.projectConfig.dependencies = dependencies;
+
+        this.projectConfig.dep = (name) => {
+            const version = dependencies[name];
+
+            if (typeof version === "undefined") {
+                throw new Error(`Module ${name} is not listed in env.js`);
+            }
+
+            return `${JSON.stringify(name)}: ${JSON.stringify(version)}`;
+        };
     }
 
     async prompting() {
@@ -263,7 +277,7 @@ module.exports = class extends Generator {
             this.projectGenerator.endMessage(this, this.projectConfig);
         }
 
-        this.log("\r\n");
+        // this.log("\r\n");
 
         if (this.options.open) {
             if (codeLocation) {
