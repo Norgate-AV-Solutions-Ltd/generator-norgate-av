@@ -187,9 +187,15 @@ module.exports = class extends Generator {
 
         this.env.cwd = this.destinationPath();
 
-        this.log(`Bootstrapping ${this.projectConfig.name}...`);
         this.log();
-        this.log(`Copying files to ${this.destinationPath()}...`);
+        this.log(`Bootstrapping ${chalk.cyan(this.projectConfig.name)}...`);
+        this.log();
+        this.log(
+            `Creating a new ${chalk.cyan(
+                this.projectGenerator.name,
+            )} project in ${chalk.green(this.destinationPath())}.`,
+        );
+        this.log();
 
         this.sourceRoot(
             path.join(__dirname, `./templates/${this.projectConfig.type}`),
@@ -198,7 +204,7 @@ module.exports = class extends Generator {
         this.projectGenerator.writing(this, this.projectConfig);
     }
 
-    install() {
+    async install() {
         if (this.abort) {
             this.env.options.skipInstall = true;
             return;
@@ -211,8 +217,11 @@ module.exports = class extends Generator {
         }
 
         if (this.projectConfig.git) {
-            this.spawnCommand("git", ["init", "--quiet"]);
+            await this.spawnCommand("git", ["init", "--quiet"]);
         }
+
+        this.log();
+        this.log("Installing packages. This might take a couple of minutes.");
     }
 
     async end() {
@@ -244,11 +253,21 @@ module.exports = class extends Generator {
             ]);
         }
 
-        this.log("");
-        this.log("Created a git commit.");
-        this.log("");
-        this.log(`Your project ${this.projectConfig.name} has been created!`);
-        this.log("");
+        this.log();
+        this.log("Created git commit.");
+        this.log();
+        this.log(
+            `${chalk.green("Success!")} Created ${chalk.cyan(
+                this.projectConfig.name,
+            )} at ${chalk.green(this.destinationPath())}`,
+        );
+        this.log("Inside that directory, you can run several commands:");
+        this.log();
+        this.log("We suggest that you begin by typing:");
+        this.log();
+        this.log(`  ${chalk.cyan("cd")} ${this.projectConfig.name}`);
+        this.log();
+        this.log(chalk.magenta("Happy Hacking!"));
 
         const [codeLocation] = await Promise.all([
             which("code").catch(() => undefined),
@@ -262,16 +281,16 @@ module.exports = class extends Generator {
                 "To start editing with Visual Studio Code, use the following commands:",
             );
 
-            this.log("");
-            this.log(`     code ${cdLocation}`);
-            this.log("");
+            this.log();
+            this.log(`     ${chalk.cyan("code")} ${cdLocation}`);
+            this.log();
         }
 
         this.log(
             "Open README.md inside the new project for further instructions.",
         );
 
-        this.log("");
+        this.log();
 
         if (this.projectGenerator.endMessage) {
             this.projectGenerator.endMessage(this, this.projectConfig);
