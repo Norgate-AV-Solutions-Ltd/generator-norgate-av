@@ -26,6 +26,7 @@ A Yeoman generator to bootstrap various projects 🚀🚀🚀
 -   [Run Yo Norgate-AV](#run-yo-norgate-av)
 -   [Generator Output](#generator-output)
 -   [Command Line](#command-line)
+-   [Run Generator using Docker](#run-generator-using-docker)
 -   [Team :soccer:](#team-soccer)
 -   [Contributors :sparkles:](#contributors-sparkles)
 -   [LICENSE :balance_scale:](#license-balance_scale)
@@ -92,6 +93,22 @@ Example usages:
   yo norgate-av . -o                  # Create an project in current folder and open with Visual Studio Code.
   yo norgate-av cowbell -t ts -y      # Create an TypeScript project in './cowbell', skip prompts, use defaults.
   yo norgate-av dopephish -t js -g    # Create an JavaScript project in './dopephish', initialize a git repository.
+```
+
+## Run Generator using Docker
+
+If you don't want to install nodejs or any node packages, use this method to run the generator from within a Docker container.
+
+```bash
+docker run -it -rm -v $(pwd):/usr/src/app generator-norgate-av:latest
+```
+
+> or
+
+You can download this bash script from [here](./bin/yo-norgate-av) which wraps the above command into a simple command.
+
+```bash
+yo-norgate-av
 ```
 
 ## Team :soccer:
