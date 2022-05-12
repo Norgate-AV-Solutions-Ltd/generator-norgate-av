@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const prompts = require("./prompts");
 
 module.exports = {
@@ -128,5 +129,53 @@ module.exports = {
         );
 
         projectConfig.installDependencies = true;
+    },
+
+    /**
+     * @param {import('yeoman-generator')} generator
+     * @param {Object} projectConfig
+     */
+    endMessage: (generator, projectConfig) => {
+        generator.log();
+        generator.log(
+            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} start`)}`,
+        );
+        generator.log('  Will start "nodemon" on the main entry point');
+        generator.log();
+
+        generator.log();
+        generator.log(`  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint`)}`);
+        generator.log("  Will lint your code and report any violations");
+        generator.log();
+
+        generator.log();
+        generator.log(
+            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint:fix`)}`,
+        );
+        generator.log(
+            "  Will lint your code and automatically fix any violations it can",
+        );
+        generator.log();
+
+        generator.log();
+        generator.log(
+            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} pretty:fix`)}`,
+        );
+        generator.log("  Will format your code according to Prettier's rules");
+        generator.log();
+
+        generator.log();
+        generator.log(
+            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} commit`)}`,
+        );
+        generator.log(
+            "  Will invoke the Commitizen CLI to guide you through creating a properly formatted commit message",
+        );
+        generator.log();
+
+        generator.log("We suggest that you begin by typing:");
+        generator.log();
+        generator.log(`  ${chalk.cyan("cd")} ${projectConfig.name}`);
+        generator.log();
     },
 };
