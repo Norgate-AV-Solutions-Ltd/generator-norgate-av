@@ -219,6 +219,8 @@ module.exports = class extends Generator {
 
         if (this.projectConfig.git) {
             await this.spawnCommand("git", ["init", "--quiet"]);
+            this.log();
+            this.log("Initialized a git repository.");
         }
 
         this.log();
