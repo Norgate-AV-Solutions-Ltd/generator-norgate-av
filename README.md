@@ -1,18 +1,11 @@
 # Yo Norgate-AV - Project Generator
 
-<style>
-.header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-</style>
-
-<div class="header">
-    <img src="./assets/yeoman-009.png" alt="yeoman-009" width="110"/>
-    <img src="./assets/yeoman.png" alt="yeoman"/>
-    <img src="./assets/yeoman-004.png" alt="yeoman-004" width="128"/>
+<div align="center">
+    <img align="center" src="./assets/yeoman-009.png" alt="yeoman-009" width="110"/>
+    <!-- <span>-----</span> -->
+    <img align="center" src="./assets/yeoman.png" alt="yeoman"/>
+    <!-- <span>-----</span> -->
+    <img align="center" src="./assets/yeoman-004.png" alt="yeoman-004" width="128"/>
 </div>
 
 ---
