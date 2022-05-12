@@ -61,6 +61,7 @@ module.exports = class extends Generator {
         this.option("projectDescription", {
             type: String,
             description: "Description of the project",
+            default: "",
         });
 
         this.option("pkg", {
