@@ -232,19 +232,6 @@ module.exports = class extends Generator {
             return;
         }
 
-        // if (this.projectGenerator.update) {
-        //     this.log("");
-        //     this.log("Your project has been updated!");
-        //     this.log("");
-        //     this.log(
-        //         "To start editing with Visual Studio Code, use the following commands:",
-        //     );
-        //     this.log("");
-        //     this.log("     code .");
-        //     this.log("");
-        //     return;
-        // }
-
         if (this.projectConfig.git) {
             await this.spawnCommand("git", ["add", "-A"]);
             await this.spawnCommand("git", [
