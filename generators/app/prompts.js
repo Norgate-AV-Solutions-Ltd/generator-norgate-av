@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 const path = require("path");
 const validator = require("./validator");
 
