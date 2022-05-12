@@ -253,12 +253,16 @@ module.exports = class extends Generator {
             )} at ${chalk.green(this.destinationPath())}`,
         );
         this.log("Inside that directory, you can run several commands:");
-        this.log();
-        this.log("We suggest that you begin by typing:");
-        this.log();
-        this.log(`  ${chalk.cyan("cd")} ${this.projectConfig.name}`);
-        this.log();
-        this.log(chalk.magenta("Happy Hacking!"));
+
+        if (this.projectGenerator.endMessage) {
+            this.projectGenerator.endMessage(this, this.projectConfig);
+        }
+
+        this.log(
+            `Open ${chalk.cyan(
+                "README.md",
+            )} inside the new project for further instructions.`,
+        );
 
         const [codeLocation] = await Promise.all([
             which("code").catch(() => undefined),
@@ -276,10 +280,6 @@ module.exports = class extends Generator {
             this.log(`     ${chalk.cyan("code")} ${cdLocation}`);
             this.log();
         }
-
-        this.log(
-            "Open README.md inside the new project for further instructions.",
-        );
 
         this.log();
 
