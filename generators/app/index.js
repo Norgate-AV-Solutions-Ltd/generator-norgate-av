@@ -241,10 +241,11 @@ module.exports = class extends Generator {
                 "--no-verify",
                 "--quiet",
             ]);
+
+            this.log();
+            this.log("Created git commit.");
         }
 
-        this.log();
-        this.log("Created git commit.");
         this.log();
         this.log(
             `${chalk.green("Success!")} Created ${chalk.cyan(
