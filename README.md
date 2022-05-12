@@ -34,7 +34,7 @@ A Yeoman generator to bootstrap various projects 🚀🚀🚀
 
 ## Installation :zap:
 
-Install Yeoman and the VS Code Extension generator:
+Install Yeoman and the Norgate AV generator:
 
 ```bash
 npm install -g yo generator-norgate-av
