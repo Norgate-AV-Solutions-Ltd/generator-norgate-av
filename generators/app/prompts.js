@@ -137,14 +137,23 @@ exports.askForGit = (generator, projectConfig) => {
  * @param {Object} projectConfig
  */
 exports.askForPackageManager = (generator, projectConfig) => {
+    const defaultPkg = "yarn";
+
+    const pkgRunCommand = {
+        yarn: "yarn",
+        npm: "npm run",
+    };
+
     const { pkg } = generator.options;
 
     if (pkg === "npm" || pkg === "yarn") {
         projectConfig.pkg = pkg;
+        projectConfig.pkgRunCommand = pkgRunCommand[projectConfig.pkg];
         return Promise.resolve();
     }
 
-    projectConfig.pkg = "yarn";
+    projectConfig.pkg = defaultPkg;
+    projectConfig.pkgRunCommand = pkgRunCommand[projectConfig.pkg];
 
     if (generator.options.skipPrompts) {
         return Promise.resolve();
@@ -165,8 +174,10 @@ exports.askForPackageManager = (generator, projectConfig) => {
                     value: "npm",
                 },
             ],
+            default: defaultPkg,
         })
         .then((pkgManagerAnswer) => {
             projectConfig.pkg = pkgManagerAnswer.pkg;
+            projectConfig.pkgRunCommand = pkgRunCommand[projectConfig.pkg];
         });
 };
