@@ -36,7 +36,6 @@ module.exports = class extends Generator {
             type: Boolean,
             alias: "o",
             description: "Open the generated project in Visual Studio Code",
-            default: true,
         });
 
         this.option("projectType", {
