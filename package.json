@@ -32,7 +32,11 @@
         "lint:fix": "eslint --fix .",
         "pretty:fix": "prettier --write .",
         "commit": "git-cz",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "doctoc": "doctoc --title '## Contents 📖' README.md",
+        "contrib:add": "all-contributors add",
+        "contrib:generate": "all-contributors generate",
+        "contrib:check": "all-contributors check"
     },
     "devDependencies": {
         "@commitlint/cli": "^16.2.3",
