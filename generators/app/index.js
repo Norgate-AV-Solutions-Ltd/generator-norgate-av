@@ -272,32 +272,31 @@ module.exports = class extends Generator {
             const cdLocation =
                 this.options.destination || this.projectConfig.name;
 
+            this.log();
             this.log(
                 "To start editing with Visual Studio Code, use the following commands:",
             );
 
             this.log();
-            this.log(`     ${chalk.cyan("code")} ${cdLocation}`);
+            this.log(`  ${chalk.cyan("code")} ${cdLocation}`);
             this.log();
         }
 
         this.log();
-
-        if (this.projectGenerator.endMessage) {
-            this.projectGenerator.endMessage(this, this.projectConfig);
-        }
-
-        // this.log("\r\n");
+        this.log(chalk.magenta("Happy Hacking! 😀"));
+        this.log();
 
         if (this.options.open) {
             if (codeLocation) {
                 this.log(
-                    `Opening ${this.destinationPath()} in Visual Studio Code...`,
+                    `Opening ${chalk.green(
+                        this.destinationPath(),
+                    )} in Visual Studio Code...`,
                 );
 
                 this.spawnCommand(codeLocation, [this.destinationPath()]);
             } else {
-                this.log("'code' command not found.");
+                this.log(`${chalk.cyan("`code`")} command not found.`);
             }
         } else if (codeLocation) {
             if (this.options.skipPrompts) {
