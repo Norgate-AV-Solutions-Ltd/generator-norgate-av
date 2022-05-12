@@ -81,7 +81,8 @@ module.exports = class extends Generator {
 
         this.projectConfig = Object.create(null);
         this.projectConfig.installDependencies = false;
-        this.projectConfig.skipPrompts = this.options.yes;
+
+        this.options.skipPrompts = this.options.yes;
 
         this.projectGenerator = undefined;
 
