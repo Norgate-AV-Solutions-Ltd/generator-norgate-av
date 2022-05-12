@@ -8,17 +8,14 @@
 # To change the generator version, apply a `YO_NORGATE_AV_VERSION`
 # environment variable (or change the default value).
 
-set -euo pipefail
-
 # Set the version to use - see https://hub.docker.com for available values
-# YO_NORGATE_AV_VERSION="${YO_NORGATE_AV_VERSION:latest}"
-YO_NORGATE_AV_VERSION="${YO_NORGATE_AV_VERSION:latest}"
+YO_NORGATE_AV_VERSION="${YO_NORGATE_AV_VERSION:-latest}"
 
 # Check docker is available
 which docker > /dev/null || (echo "Docker not installed - see https://docs.docker.com/engine/install" && exit 1)
 
 # Now, run the docker container
 docker run -it --rm \
-    -v="${PWD}:/usr/src/app" \
+    -v "${PWD}:/usr/src/app" \
     "generator-norgate-av:${YO_NORGATE_AV_VERSION}" \
     "${@}"
