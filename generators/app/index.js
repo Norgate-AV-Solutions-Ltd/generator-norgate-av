@@ -299,33 +299,27 @@ module.exports = class extends Generator {
                 this.log(`${chalk.cyan("`code`")} command not found.`);
             }
         } else if (codeLocation) {
-            if (this.options.skipPrompts) {
-                this.spawnCommand(codeLocation, [this.destinationPath()]);
-            } else {
-                const choices = [];
+            const choices = [];
 
-                if (codeLocation) {
-                    choices.push({
-                        name: "Open with `code`",
-                        value: codeLocation,
-                    });
-                }
-
-                choices.push({ name: "Skip", value: "skip" });
-
-                const answer = await this.prompt({
-                    type: "list",
-                    name: "openWith",
-                    message:
-                        "Do you want to open the new folder with Visual Studio Code?",
-                    choices,
+            if (codeLocation) {
+                choices.push({
+                    name: "Open with `code`",
+                    value: codeLocation,
                 });
+            }
 
-                if (answer && answer.openWith && answer.openWith !== "skip") {
-                    this.spawnCommand(answer.openWith, [
-                        this.destinationPath(),
-                    ]);
-                }
+            choices.push({ name: "Skip", value: "skip" });
+
+            const answer = await this.prompt({
+                type: "list",
+                name: "openWith",
+                message:
+                    "Do you want to open the new folder with Visual Studio Code?",
+                choices,
+            });
+
+            if (answer && answer.openWith && answer.openWith !== "skip") {
+                this.spawnCommand(answer.openWith, [this.destinationPath()]);
             }
         }
     }
