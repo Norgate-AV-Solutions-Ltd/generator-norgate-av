@@ -13,20 +13,7 @@ module.exports = {
         await prompts.askForProjectDisplayName(generator, projectConfig);
         await prompts.askForProjectId(generator, projectConfig);
         await prompts.askForProjectDescription(generator, projectConfig);
-
-        projectConfig.checkJavaScript = false;
-        await generator
-            .prompt({
-                type: "confirm",
-                name: "checkJavaScript",
-                message: "Enable JavaScript type checking in 'jsconfig.json'?",
-                default: false,
-            })
-            .then((strictJavaScriptAnswer) => {
-                projectConfig.checkJavaScript =
-                    strictJavaScriptAnswer.checkJavaScript;
-            });
-
+        await prompts.askForCheckJavaScript(generator, projectConfig);
         await prompts.askForGit(generator, projectConfig);
         await prompts.askForPackageManager(generator, projectConfig);
     },
