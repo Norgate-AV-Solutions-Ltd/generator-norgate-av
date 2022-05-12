@@ -26,7 +26,7 @@ A Yeoman generator to bootstrap various projects 🚀🚀🚀
 -   [Run Yo Norgate-AV](#run-yo-norgate-av)
 -   [Generator Output](#generator-output)
 -   [Command Line](#command-line)
--   [Run Generator using Docker](#run-generator-using-docker)
+-   [Run Generator using Docker :whale:](#run-generator-using-docker-whale)
 -   [Team :soccer:](#team-soccer)
 -   [Contributors :sparkles:](#contributors-sparkles)
 -   [LICENSE :balance_scale:](#license-balance_scale)
@@ -95,7 +95,7 @@ Example usages:
   yo norgate-av dopephish -t js -g    # Create an JavaScript project in './dopephish', initialize a git repository.
 ```
 
-## Run Generator using Docker
+## Run Generator using Docker :whale:
 
 If you don't want to install nodejs or any node packages, use this method to run the generator from within a Docker container.
 
