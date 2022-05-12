@@ -27,10 +27,8 @@ A Yeoman generator to bootstrap various projects 🚀🚀🚀
 ## Contents 📖
 
 -   [Installation :zap:](#installation-zap)
--   [Run Yo Norgate-AV](#run-yo-norgate-av)
--   [Generator Output](#generator-output)
--   [Command Line](#command-line)
--   [Run Generator using Docker :whale:](#run-generator-using-docker-whale)
+-   [Usage :rocket:](#usage-rocket)
+-   [Command Line :man_technologist:](#command-line-man_technologist)
 -   [Team :soccer:](#team-soccer)
 -   [Contributors :sparkles:](#contributors-sparkles)
 -   [LICENSE :balance_scale:](#license-balance_scale)
@@ -49,7 +47,7 @@ npm install -g yo generator-norgate-av
 yarn global add yo generator-norgate-av
 ```
 
-## Run Yo Norgate-AV
+## Usage :rocket:
 
 The Yeoman generator will walk you through the steps required to create your project prompting for the required information.
 
@@ -63,14 +61,14 @@ yo norgate-av
     <img src="./assets/yo-norgate-av.png" alt="the-command-generator" width="750"/>
 </div>
 
-## Generator Output
+<!-- ## Output :package:
 
-These templates will
+The generator will
 
 -   Create a base folder structure
--   Template out a rough `package.json`
+-   Template out a `package.json` -->
 
-## Command Line
+## Command Line :man_technologist:
 
 ```bash
 Usage:
@@ -83,23 +81,23 @@ Argument (optional):
   display name.
 
 Options:
-  -h,   --help                  # Print the generator's options and usage
-  -y,   --yes                   # Quick mode, skip all optional prompts and use defaults
-  -o,   --open                  # Open the generated project in Visual Studio Code
-  -t,   --projectType           # ts, js...
-        --projectId             # Id of the project
-        --projectDescription    # Description of the project
-  -p,   --pkg                   # 'npm' or 'yarn'
-  -g,   --git                   # Initialize a git repo
+  -h,   --help                          # Print the generator's options and usage
+  -y,   --yes                           # Quick mode, skip all optional prompts and use defaults
+  -o,   --open                          # Open the generated project in Visual Studio Code
+  -t,   --projectType                   # ts, js...
+        --projectId                     # Id of the project
+        --projectDescription            # Description of the project
+  -p,   --pkg                           # "yarn" or "npm"
+  -g,   --git                           # Initialize a git repo
 
 Example usages:
-  yo norgate-av                       # Create an project in a folder with the projects's name.
-  yo norgate-av . -o                  # Create an project in current folder and open with Visual Studio Code.
-  yo norgate-av cowbell -t ts -y      # Create an TypeScript project in './cowbell', skip prompts, use defaults.
-  yo norgate-av dopephish -t js -g    # Create an JavaScript project in './dopephish', initialize a git repository.
+  yo norgate-av                         # Create an project in a folder with the projects's name.
+  yo norgate-av . -o                    # Create an project in current folder and open with Visual Studio Code.
+  yo norgate-av cowbell -t ts -y        # Create an TypeScript project in './cowbell', skip prompts, use defaults.
+  yo norgate-av dopephish -t js -g      # Create an JavaScript project in './dopephish', initialize a git repository.
 ```
 
-## Run Generator using Docker :whale:
+<!-- ## Run with Docker :whale:
 
 If you don't want to install nodejs or any node packages, use this method to run the generator from within a Docker container.
 
@@ -113,7 +111,7 @@ You can download this bash script from [here](./bin/yo-norgate-av) which wraps t
 
 ```bash
 yo-norgate-av
-```
+``` -->
 
 ## Team :soccer:
 
