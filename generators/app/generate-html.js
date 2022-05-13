@@ -40,16 +40,6 @@ module.exports = {
         );
 
         generator.fs.copy(
-            generator.templatePath("src"),
-            generator.destinationPath("src"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath("styles"),
-            generator.destinationPath("styles"),
-        );
-
-        generator.fs.copy(
             generator.templatePath("assets"),
             generator.destinationPath("assets"),
         );
