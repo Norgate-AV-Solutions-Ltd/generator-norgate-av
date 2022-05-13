@@ -4,7 +4,7 @@ const prompts = require("./prompts");
 module.exports = {
     id: "project-html",
     aliases: ["html", "web", "vanilla"],
-    name: "Vanilla HTML, CSS & JS",
+    name: "HTML, CSS & JS",
 
     /**
      * @param {import('yeoman-generator')} generator
