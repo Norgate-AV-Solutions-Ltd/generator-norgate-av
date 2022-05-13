@@ -11,8 +11,9 @@ const javascript = require("./generate-javascript");
 const cli = require("./generate-cli");
 const html = require("./generate-html");
 const clang = require("./generate-clang");
+const python = require("./generate-python");
 
-const projectGenerators = [typescript, javascript, cli, html, clang];
+const projectGenerators = [typescript, javascript, cli, html, clang, python];
 
 module.exports = class extends Generator {
     constructor(args, opts) {
