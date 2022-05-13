@@ -44,33 +44,13 @@ module.exports = {
         );
 
         generator.fs.copy(
-            generator.templatePath(".commitlintrc.json"),
+            generator.templatePath("commitlintrc.json"),
             generator.destinationPath(".commitlintrc.json"),
         );
 
         generator.fs.copy(
-            generator.templatePath(".eslintrc.json"),
-            generator.destinationPath(".eslintrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath("eslintignore"),
-            generator.destinationPath(".eslintignore"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath(".lintstagedrc.json"),
+            generator.templatePath("lintstagedrc.json"),
             generator.destinationPath(".lintstagedrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath(".prettierrc.json"),
-            generator.destinationPath(".prettierrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath("prettierignore"),
-            generator.destinationPath(".prettierignore"),
         );
 
         generator.fs.copyTpl(
@@ -104,12 +84,6 @@ module.exports = {
         generator.fs.copy(
             generator.templatePath("LICENSE"),
             generator.destinationPath("LICENSE"),
-        );
-
-        generator.fs.copyTpl(
-            generator.templatePath("jsconfig.json.ejs"),
-            generator.destinationPath("jsconfig.json"),
-            projectConfig,
         );
 
         generator.fs.copyTpl(

@@ -44,33 +44,13 @@ module.exports = {
         );
 
         generator.fs.copy(
-            generator.templatePath(".commitlintrc.json"),
+            generator.templatePath("commitlintrc.json"),
             generator.destinationPath(".commitlintrc.json"),
         );
 
         generator.fs.copy(
-            generator.templatePath(".eslintrc.json"),
-            generator.destinationPath(".eslintrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath("eslintignore"),
-            generator.destinationPath(".eslintignore"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath(".lintstagedrc.json"),
+            generator.templatePath("lintstagedrc.json"),
             generator.destinationPath(".lintstagedrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath(".prettierrc.json"),
-            generator.destinationPath(".prettierrc.json"),
-        );
-
-        generator.fs.copy(
-            generator.templatePath("prettierignore"),
-            generator.destinationPath(".prettierignore"),
         );
 
         generator.fs.copyTpl(
@@ -107,12 +87,6 @@ module.exports = {
         );
 
         generator.fs.copyTpl(
-            generator.templatePath("jsconfig.json.ejs"),
-            generator.destinationPath("jsconfig.json"),
-            projectConfig,
-        );
-
-        generator.fs.copyTpl(
             generator.templatePath("package.json.ejs"),
             generator.destinationPath("package.json"),
             projectConfig,
@@ -132,33 +106,33 @@ module.exports = {
      * @param {Object} projectConfig
      */
     endMessage: (generator, projectConfig) => {
-        generator.log();
-        generator.log(
-            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} start`)}`,
-        );
-        generator.log('  Will start "nodemon" on the main entry point');
-        generator.log();
+        // generator.log();
+        // generator.log(
+        //     `  ${chalk.cyan(`${projectConfig.pkgRunCommand} start`)}`,
+        // );
+        // generator.log('  Will start "nodemon" on the main entry point');
+        // generator.log();
 
-        generator.log();
-        generator.log(`  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint`)}`);
-        generator.log("  Will lint your code and report any violations");
-        generator.log();
+        // generator.log();
+        // generator.log(`  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint`)}`);
+        // generator.log("  Will lint your code and report any violations");
+        // generator.log();
 
-        generator.log();
-        generator.log(
-            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint:fix`)}`,
-        );
-        generator.log(
-            "  Will lint your code and automatically fix any violations it can",
-        );
-        generator.log();
+        // generator.log();
+        // generator.log(
+        //     `  ${chalk.cyan(`${projectConfig.pkgRunCommand} lint:fix`)}`,
+        // );
+        // generator.log(
+        //     "  Will lint your code and automatically fix any violations it can",
+        // );
+        // generator.log();
 
-        generator.log();
-        generator.log(
-            `  ${chalk.cyan(`${projectConfig.pkgRunCommand} pretty:fix`)}`,
-        );
-        generator.log("  Will format your code according to Prettier's rules");
-        generator.log();
+        // generator.log();
+        // generator.log(
+        //     `  ${chalk.cyan(`${projectConfig.pkgRunCommand} pretty:fix`)}`,
+        // );
+        // generator.log("  Will format your code according to Prettier's rules");
+        // generator.log();
 
         generator.log();
         generator.log(

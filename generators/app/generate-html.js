@@ -45,12 +45,12 @@ module.exports = {
         );
 
         generator.fs.copy(
-            generator.templatePath(".commitlintrc.json"),
+            generator.templatePath("commitlintrc.json"),
             generator.destinationPath(".commitlintrc.json"),
         );
 
         generator.fs.copy(
-            generator.templatePath(".eslintrc.json"),
+            generator.templatePath("eslintrc.json"),
             generator.destinationPath(".eslintrc.json"),
         );
 
@@ -60,12 +60,12 @@ module.exports = {
         );
 
         generator.fs.copy(
-            generator.templatePath(".lintstagedrc.json"),
+            generator.templatePath("lintstagedrc.json"),
             generator.destinationPath(".lintstagedrc.json"),
         );
 
         generator.fs.copy(
-            generator.templatePath(".prettierrc.json"),
+            generator.templatePath("prettierrc.json"),
             generator.destinationPath(".prettierrc.json"),
         );
 
