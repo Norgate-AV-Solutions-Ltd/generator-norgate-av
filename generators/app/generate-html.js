@@ -126,8 +126,8 @@ module.exports = {
         );
 
         generator.fs.copyTpl(
-            generator.templatePath("index.html.ejs"),
-            generator.destinationPath("index.html"),
+            generator.templatePath("public/index.html.ejs"),
+            generator.destinationPath("public/index.html"),
             projectConfig,
         );
 
