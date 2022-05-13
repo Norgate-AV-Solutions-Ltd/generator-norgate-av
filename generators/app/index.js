@@ -8,9 +8,10 @@ const env = require("./env");
 
 const typescript = require("./generate-typescript");
 const javascript = require("./generate-javascript");
+const cli = require("./generate-cli");
 const html = require("./generate-html");
 
-const projectGenerators = [typescript, javascript, html];
+const projectGenerators = [typescript, javascript, cli, html];
 
 module.exports = class extends Generator {
     constructor(args, opts) {
