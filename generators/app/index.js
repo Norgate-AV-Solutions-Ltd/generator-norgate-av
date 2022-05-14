@@ -209,6 +209,28 @@ module.exports = class extends Generator {
         this.projectGenerator.writing(this, this.projectConfig);
     }
 
+    // async _gitInit() {
+    //     const { git } = this.projectConfig;
+
+    //     if (!git) {
+    //         return Promise.resolve();
+    //     }
+
+    //     const gitPath = await which("git");
+
+    //     if (gitPath) {
+    //         await this.spawnCommand("git", ["init", "--quiet"]);
+    //         this.log();
+    //         this.log("Initialized a git repository.");
+    //     } else {
+    //         this.log();
+    //         this.log(`${chalk.red.bold("Oops!")} 🤦‍♂️`);
+    //         this.log(
+    //             "You opted to use Git but Git is not installed on your system.",
+    //         );
+    //     }
+    // }
+
     async install() {
         if (this.abort) {
             this.env.options.skipInstall = true;
